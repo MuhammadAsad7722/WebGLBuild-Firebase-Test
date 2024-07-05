@@ -6,6 +6,10 @@
   <title>Unity WebGL Player | WebGl Test</title>
   <link rel="shortcut icon" href="TemplateData/favicon.ico">
   <link rel="stylesheet" href="TemplateData/style.css">
+  <!-- Import Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.3/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.3/firebase-database.js"></script>
 </head>
 <body>
   <div id="unity-container" class="unity-desktop">
@@ -95,10 +99,7 @@
     document.body.appendChild(script);
   </script>
 
-  <!-- Import Firebase SDK -->
-  <script src="https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.12.3/firebase-analytics.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.12.3/firebase-database.js"></script>
+
 
   <script type="module">
  
@@ -115,12 +116,19 @@
     measurementId: "G-8J372FF798"
     };
 
-    // Initialize Firebase
-    const app = firebase.initializeApp(firebaseConfig);
-    console.log("Firebase initialized successfully");
-    const analytics = firebase.analytics();
-     const database = firebase.database();
-    console.log("Firebase database initialized successfully");
+   try {
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      console.log("Firebase initialized successfully");
+
+      // Initialize Realtime Database and get a reference to the service
+      const database = firebase.database();
+      console.log("Firebase database initialized successfully", database);
+
+      // Your additional Firebase code here
+    } catch (error) {
+      console.error("Error initializing Firebase:", error);
+    }
   </script>
 </body>
 </html>
