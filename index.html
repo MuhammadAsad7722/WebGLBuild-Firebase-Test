@@ -7,9 +7,6 @@
   <link rel="shortcut icon" href="TemplateData/favicon.ico">
   <link rel="stylesheet" href="TemplateData/style.css">
   <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
-  <script src="https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.12.3/firebase-analytics.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.12.3/firebase-database.js"></script>
 </head>
 <body>
 <div id="unity-container" class="unity-desktop">
@@ -100,6 +97,11 @@
   document.body.appendChild(script);
 </script>
 
+<!-- Firebase scripts -->
+<script src="https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.3/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.3/firebase-database.js"></script>
+
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     console.log("DOM fully loaded and parsed");
@@ -116,8 +118,8 @@
       measurementId: "G-EP5VVS99M2"
     };
 
-    // Initialize Firebase
     try {
+      // Initialize Firebase
       firebase.initializeApp(firebaseConfig);
       firebase.analytics();
       firebase.database();
@@ -125,7 +127,6 @@
     } catch (error) {
       console.error("Error initializing Firebase:", error);
     }
-
   });
 </script>
 
