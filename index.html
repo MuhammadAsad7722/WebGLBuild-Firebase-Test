@@ -107,40 +107,25 @@
   document.addEventListener("DOMContentLoaded", function() {
     console.log("DOM fully loaded and parsed");
 
-    function initializeFirebase() {
-      if (typeof firebase === 'undefined') {
-        console.error("Firebase SDK not loaded correctly");
-        return;
-      }
+    // Initialize Firebase
+    const firebaseConfig = {
+      apiKey: "AIzaSyBSq4bRTyMx_GGb1vkqdMOuUnFG976gQQI",
+      authDomain: "webgl-test-9c69f.firebaseapp.com",
+      databaseURL: "https://webgl-test-9c69f-default-rtdb.firebaseio.com",
+      projectId: "webgl-test-9c69f",
+      storageBucket: "webgl-test-9c69f.appspot.com",
+      messagingSenderId: "127638780532",
+      appId: "1:127638780532:web:0e929b876fa373494a2f21",
+      measurementId: "G-EP5VVS99M2"
+    };
 
-      // Your web app's Firebase configuration
-      const firebaseConfig = {
-        apiKey: "AIzaSyBSq4bRTyMx_GGb1vkqdMOuUnFG976gQQI",
-        authDomain: "webgl-test-9c69f.firebaseapp.com",
-        databaseURL: "https://webgl-test-9c69f-default-rtdb.firebaseio.com",
-        projectId: "webgl-test-9c69f",
-        storageBucket: "webgl-test-9c69f.appspot.com",
-        messagingSenderId: "127638780532",
-        appId: "1:127638780532:web:0e929b876fa373494a2f21",
-        measurementId: "G-EP5VVS99M2"
-      };
-
-      try {
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        firebase.analytics();
-        firebase.database();
-        console.log("Firebase initialized successfully");
-      } catch (error) {
-        console.error("Error initializing Firebase:", error);
-      }
-    }
-
-    // Check if Firebase scripts are loaded
-    if (typeof firebase === 'undefined') {
-      console.error("Firebase SDK not loaded correctly");
-    } else {
-      initializeFirebase();
+    try {
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+      firebase.database();
+      console.log("Firebase initialized successfully");
+    } catch (error) {
+      console.error("Error initializing Firebase:", error);
     }
   });
 </script>
