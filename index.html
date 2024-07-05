@@ -84,6 +84,8 @@
         progressBarFull.style.width = 100 * progress + "%";
         console.log("Unity loading progress: " + (progress * 100).toFixed(2) + "%");
       }).then((unityInstance) => {
+window.unityInstance = unityInstance;
+
         console.log("Unity instance created successfully");
         loadingBar.style.display = "none";
         fullscreenButton.onclick = () => {
