@@ -106,6 +106,12 @@
   document.addEventListener("DOMContentLoaded", function() {
     console.log("DOM fully loaded and parsed");
 
+    // Check if firebase is defined
+    if (typeof firebase === 'undefined') {
+      console.error("Firebase SDK not loaded correctly");
+      return;
+    }
+
     // Your web app's Firebase configuration
     const firebaseConfig = {
       apiKey: "AIzaSyBSq4bRTyMx_GGb1vkqdMOuUnFG976gQQI",
