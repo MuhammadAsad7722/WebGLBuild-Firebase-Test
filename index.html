@@ -78,23 +78,18 @@
 
     var script = document.createElement("script");
     script.src = loaderUrl;
-    script.onload = () => {
-      console.log("Unity Loader script loaded");
-      createUnityInstance(canvas, config, (progress) => {
-        progressBarFull.style.width = 100 * progress + "%";
-        console.log("Unity loading progress: " + (progress * 100).toFixed(2) + "%");
-      }).then((unityInstance) => {
-window.unityInstance = unityInstance;
-
-        console.log("Unity instance created successfully");
-        loadingBar.style.display = "none";
-        fullscreenButton.onclick = () => {
-          unityInstance.SetFullscreen(1);
-        };
-      }).catch((message) => {
-        console.error("Unity WebGL error: " + message);
-        alert("An error occurred while loading Unity WebGL content. Please refresh the page.");
-      });
+        script.onload = () => {
+            createUnityInstance(canvas, config, (progress) => {
+                progressBarFull.style.width = 100 * progress + "%";
+            }).then((unityInstance) => {
+                window.unityInstance = unityInstance;
+                loadingBar.style.display = "none";
+                fullscreenButton.onclick = () => {
+                    unityInstance.SetFullscreen(1);
+                };
+            }).catch((message) => {
+                alert(message);
+            });
     };
 
     document.body.appendChild(script);
