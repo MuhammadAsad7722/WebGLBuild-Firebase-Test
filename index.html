@@ -6,7 +6,7 @@
   <title>Unity WebGL Player | WebGl Test</title>
   <link rel="shortcut icon" href="TemplateData/favicon.ico">
   <link rel="stylesheet" href="TemplateData/style.css">
-  <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+
 </head>
 <body>
 <div id="unity-container" class="unity-desktop">
@@ -97,37 +97,30 @@
   document.body.appendChild(script);
 </script>
 
-<!-- Firebase scripts -->
-<script src="https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.3/firebase-analytics.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.3/firebase-database.js"></script>
+ <script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
 
-<!-- Initialize Firebase after scripts are loaded -->
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    console.log("DOM fully loaded and parsed");
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyBSq4bRTyMx_GGb1vkqdMOuUnFG976gQQI",
+    authDomain: "webgl-test-9c69f.firebaseapp.com",
+    databaseURL: "https://webgl-test-9c69f-default-rtdb.firebaseio.com",
+    projectId: "webgl-test-9c69f",
+    storageBucket: "webgl-test-9c69f.appspot.com",
+    messagingSenderId: "127638780532",
+    appId: "1:127638780532:web:b27505aee1c6897e4a2f21",
+    measurementId: "G-8J372FF798"
+  };
 
-    // Initialize Firebase
-    const firebaseConfig = {
-      apiKey: "AIzaSyBSq4bRTyMx_GGb1vkqdMOuUnFG976gQQI",
-      authDomain: "webgl-test-9c69f.firebaseapp.com",
-      databaseURL: "https://webgl-test-9c69f-default-rtdb.firebaseio.com",
-      projectId: "webgl-test-9c69f",
-      storageBucket: "webgl-test-9c69f.appspot.com",
-      messagingSenderId: "127638780532",
-      appId: "1:127638780532:web:0e929b876fa373494a2f21",
-      measurementId: "G-EP5VVS99M2"
-    };
-
-    try {
-      firebase.initializeApp(firebaseConfig);
-      firebase.analytics();
-      firebase.database();
-      console.log("Firebase initialized successfully");
-    } catch (error) {
-      console.error("Error initializing Firebase:", error);
-    }
-  });
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
 </script>
 
 </body>
